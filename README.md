@@ -12,6 +12,8 @@ It utilizes the following Software Tools/Frameworks:
 - Front-end Styling Framework: Bootstrap
 - Back-end Database Storage: PostgreSQL
 
+Note to professor/grader: the password for every account in our database is the same as the username. The username and password for the admin account are both 'admin1'.
+
 Set-up Guide
 -------------
 
