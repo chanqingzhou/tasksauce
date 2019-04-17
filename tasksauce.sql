@@ -248,6 +248,21 @@ INSERT INTO public.users (username, email, password)
 VALUES('p1','p1@p.com','$2b$10$wCGVdKumqUCwBkmj77xxGeLUJQZPzd2wRNj4fd4aSiI9nNA6HD3VS');
 INSERT INTO public.users (username, email, password)
 VALUES('p2','p2@p.com','$2b$10$SegFfQ16EJvwCj.x9HGs1OC.jFwZcEZubtlJbq4.aUylDHBO66V1a');
+INSERT INTO public.users (username, email, password)
+VALUES('p3','p3@p.com','$2b$10$aDbGkonlb6g8MnJd/iBDQul63dtXtjt9u8QZNJjvKSxyomz2dFlB.');
+INSERT INTO public.users (username, email, password)
+VALUES('p4','p4@p.com','$2b$10$aDbGkonlb6g8MnJd/iBDQumHk89jrH6nnj0t.GxjYCS6dssdfG6cS');
+
+INSERT INTO premium_users ("username")
+VALUES ('p1');
+INSERT INTO premium_users ("username")
+VALUES ('p2');
+INSERT INTO premium_users ("username")
+VALUES ('p3');
+INSERT INTO premium_users ("username")
+VALUES ('p4');
+
+--job requests
 
 INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
 VALUES ('Babysitting', 'AMK', '2019-08-13', '05:30', 'Look after 4yo','dummy1');
@@ -259,11 +274,36 @@ INSERT INTO job_request ("job", "loc", "date", "time", "details","username")
 VALUES ('Delivery', 'KR', '2019-12-01', '12:30', 'Deliver parcel from Changi to Kent Ridge','dummy1');
 INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
 VALUES ('Food Delivery', 'KR', '2019-12-01', '18:30', 'Deliver food from Atlas Cafe to NUS','dummy1');
+--job_id 6
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Deliver food', 'AMK', '2019-08-13', '05:30', 'Will be busy, need help','d1');
+--job_id 7
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Feed Granny', 'BSH', '2019-05-15', '19:30', 'kind granny!','d1');
+--job_id 8
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Feed Kids', 'BSH', '2019-05-15', '12:30', 'Going overseas, stay in bungalow','d1');
+--job_id 9 (below, request)
+INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
+VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Fix lights','p1');
+INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
+VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Dismantle fan','p2');
+INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
+VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Move cabinet','p1');
+INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
+VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Replace floor tiles','p2');
+--job_id 13
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Feed Kids1', 'BSH', '2019-05-15', '12:30', 'im hungryy','d1');
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Clean house', 'BSH', '2019-05-18', '12:30', 'House cleaning please','p3');
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Feed Dog', 'CLM', '2019-05-19', '08:30', 'I have a cute doggo!','p3');
+INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
+VALUES ('Hang laundry', 'CLM', '2019-05-17', '19:00', 'Very easy job','p4');
 
-INSERT INTO premium_users ("username")
-VALUES ('p1');
-INSERT INTO premium_users ("username")
-VALUES ('p2');
+
+--job offers
 
 --job_id 1
 INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
@@ -293,29 +333,67 @@ INSERT INTO job_offer ("job", "loc", "date", "time", "details","username")
 VALUES ('Delivery', 'KR', '2019-12-01', '12:30', 'Deliver some fruits','d3');
 INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
 VALUES ('Delivery', 'KR', '2019-12-01', '12:30', 'Deliver parcel from Jurong East to Kent Ridge','d4');
+--job id 14
+INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
+VALUES ('Delivery', 'KR', '2019-12-01', '12:30', 'bid for me plz','d4');
+--job_id 15 (below)
+INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
+VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Deliver parcel from Bugis to Temasek Hall','p1');
+INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
+VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Date with you','p2');
+INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
+VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Deliver some durians','p1');
+INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
+VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Deliver parcel from Pioneer to Kent Ridge','p2');
 
 
 --bid_id 1
-INSERT INTO request_bids VALUES ('1','dummy2','1','tested bid');
+INSERT INTO request_bids VALUES ('1','dummy2','1','I am good at this');
 
---job_request > request_bid > request_completed sets
---job_id 6
-INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
-VALUES ('Feeding', 'AMK', '2019-08-13', '05:30', 'feed me pls','d1');
 --bid_id 2
 INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
 VALUES ('6', 'd2', '20', 'feed you anyday');
 INSERT INTO request_completed ("job_id", "bid_id")
 VALUES ('6', '2');
 
---job_id 7
-INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
-VALUES ('Feed Kids', 'BSH', '2019-07-15', '05:30', 'im hungryy','d1');
 --bid_id 3
 INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
 VALUES ('7', 'd3', '15', 'im hungryyyy too but ill feed you');
 INSERT INTO request_completed ("job_id", "bid_id")
 VALUES ('7', '3');
+
+--bid_id 4
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('8', 'd4', '22', 'im lovely too but ill feed you with makan');
+INSERT INTO request_completed ("job_id", "bid_id")
+VALUES ('8', '4');
+
+--bid_id 5
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('13', 'd4', '22', 'im lovely too but ill feed you with makan1');
+INSERT INTO request_in_progress ("job_id", "bid_id")
+VALUES ('13', '5');
+
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('2', 'd1', '22', 'pick me!');
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('2', 'p2', '15', 'satisfaction guaranteed');
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('3', 'd2', '23', 'I am good at what I do');
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('3', 'p4', '20', 'You will not regret choosing me');
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('5', 'd3', '10', 'I am the best');
+INSERT INTO request_in_progress ("job_id", "bid_id")
+VALUES ('5', '10');
+--job id 11 below
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('10', 'p1', '38', 'You will not regret');
+INSERT INTO request_in_progress ("job_id", "bid_id")
+VALUES ('10', '11');
+INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('11', 'd2', '12', 'You will not worry');
+
 
 --offer_bids > offer_completed (the job_offer is already specified above)
 --bid_id 1
@@ -336,10 +414,6 @@ VALUES ('12', 'd1', '15', 'me want food real bad');
 INSERT INTO offer_completed ("job_id", "bid_id")
 VALUES ('12', '3');
 
---test values for trigger testing
---job id 14
-INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
-VALUES ('Delivery', 'KR', '2019-12-01', '12:30', 'bid for me plz','d4');
 --bid id 4, 5, 6, 7
 INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
 VALUES ('14', 'd1', '15', 'me want food real bad');
@@ -349,46 +423,34 @@ INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
 VALUES ('14', 'd3', '100', 'me am d3 soooo hungz');
 INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
 VALUES ('13', 'd1', '12', 'me am d1 soooo hungz');
+INSERT INTO offer_in_progress ("job_id", "bid_id")
+VALUES ('13', '7');
 
---job_id 8
-INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
-VALUES ('Feed Kids', 'BSH', '2019-05-15', '12:30', 'im hungryy','d1');
---bid_id 4
-INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
-VALUES ('8', 'd4', '22', 'im lovely too but ill feed you with makan');
-INSERT INTO request_completed ("job_id", "bid_id")
-VALUES ('8', '4');
+--bid id 8 below
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('15', 'p3', '2', 'please deliver my parcel!');
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('15', 'p4', '3', 'I need my parcel rly urgently.');
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('15', 'd4', '6', 'Please, I stay in Temasek Hall!');
 
---job_id 15 (below)
-INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
-VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Deliver parcel from Bugis to Temasek Hall','p1');
-INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
-VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Date with you','p2');
-INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
-VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Deliver some durians','p1');
-INSERT INTO job_offer ("job", "loc", "date", "time", "details","username") 
-VALUES ('Delivery', 'TH', '2019-12-01', '12:30', 'Deliver parcel from Pioneer to Kent Ridge','p2');
---job_id 9 (below, request)
-INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
-VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Fix lights','p1');
-INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
-VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Dismantle fan','p2');
-INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
-VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Move cabinet','p1');
-INSERT INTO job_request ("job", "loc", "date", "time", "details", "username") 
-VALUES ('Assemble Furniture', 'TH', '2019-12-01', '12:30', 'Replace floor tiles','p2');
 
---job_id 13
-INSERT INTO job_request ("job", "loc", "date", "time", "details","username") 
-VALUES ('Feed Kids1', 'BSH', '2019-05-15', '12:30', 'im hungryy','d1');
---bid_id 5
-INSERT INTO request_bids ("job_id", "bid_user", "bid_price", "bid_info")
-VALUES ('13', 'd4', '22', 'im lovely too but ill feed you with makan1');
-INSERT INTO request_in_progress ("job_id", "bid_id")
-VALUES ('13', '5');
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('17', 'p3', '4', 'Help me please');
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('17', 'p4', '5', 'Please help');
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('18', 'd2', '3', 'I really need help');
+INSERT INTO offer_completed ("job_id", "bid_id")
+VALUES ('18', '13');
+
+INSERT INTO offer_bids ("job_id", "bid_user", "bid_price", "bid_info")
+VALUES ('16', 'p4', '3', 'I really need help');
+INSERT INTO offer_in_progress ("job_id", "bid_id")
+VALUES ('16', '14');
 
 INSERT INTO user_comments VALUES ('dummy1','dummy2','Thank you for your hard work. You are very dilligent');
-
-
-
-
+INSERT INTO user_comments VALUES ('p1','d2','You are a really great guy! Hope to see you next time.');
+INSERT INTO user_comments VALUES ('d2','p1','Thank you!');
+INSERT INTO user_comments VALUES ('d3','d1','Thank you for the amazing service!');
+INSERT INTO user_comments VALUES ('d1','d3','Thank you so much!');
